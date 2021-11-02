@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Cloud Compute (Google Compute Engine) &#8212; Internet2 Cloud Learning And Skills Sessions</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/CLASS-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Internet2 Cloud Learning And Skills Sessions</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_to_cloud.html">
+   Cloud Computing for Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  CLASS Essentials Modules
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../AWS/intro_to_AWS_Essentials.html">
+   Amazon Web Services (AWS)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/01_intro_to_cloud_console.html">
+     Introduction to the AWS Console
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/02_intro_to_compute_part1.html">
+     Introduction to Elastic Cloud Compute (EC2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/03_intro_to_compute_part2.html">
+     Instance Storage, Tags &amp; Security Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/04_intro_to_cli.html">
+     Introduction to the AWS CLI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/05_intro_to_cloud_storage.html">
+     Introduction to Cloud Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/06_running_analysis.html">
+     Putting It All Together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/07_monitoring_costs.html">
+     Monitoring Costs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AWS/08_cleaning_up_resources.html">
+     Cleaning Up Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Azure/intro_to_Azure_Essentials.html">
+   Microsoft Azure
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/01_intro_to_cloud_console.html">
+     Introduction to the AWS Console
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/02_intro_to_compute_part1.html">
+     Introduction to Elastic Cloud Compute (EC2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/03_intro_to_compute_part2.html">
+     Instance Storage, Tags &amp; Security Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/04_intro_to_cli.html">
+     Introduction to the AWS CLI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/05_intro_to_cloud_storage.html">
+     Introduction to Cloud Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/06_running_analysis.html">
+     Putting It All Together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/07_monitoring_costs.html">
+     Monitoring Costs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Azure/08_cleaning_up_resources.html">
+     Cleaning Up Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="intro_to_GCP_Essentials.html">
+   Google Cloud Platform (GCP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_intro_to_cloud_console.html">
+     Introduction to the GCP Cloud Console
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_intro_to_cli.html">
+     Introduction to the gcloud CLI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_intro_to_cloud_storage.html">
+     Introduction to Google Cloud Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_running_analysis.html">
+     Putting It All Together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_monitoring_costs.html">
+     Monitoring Costs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_cleaning_up_resources.html">
+     Cleaning Up Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Learning Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ELM/01_bash_shell.html">
+   Learn the Bash Shell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/GCP/02_intro_to_compute_part1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/GCP/02_intro_to_compute_part1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/GCP/02_intro_to_compute_part1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#google-compute-engine">
+   Google Compute Engine
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#allocate-a-vm-instance">
+   Allocate a VM Instance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#security">
+   Security
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#follow-the-storage-allocation">
+   Follow the Storage Allocation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enumerate-the-vm-instances">
+   Enumerate the VM Instances
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connect-to-the-vm-instance">
+   Connect to the VM Instance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delete-the-storage-exercise">
+   Delete the Storage - Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-cloud-compute-google-compute-engine">
+<h1>Introduction to Cloud Compute (Google Compute Engine)<a class="headerlink" href="#introduction-to-cloud-compute-google-compute-engine" title="Permalink to this headline">¶</a></h1>
+<p>Learner Questions</p>
+<ul class="simple">
+<li><p>How do I compute in the cloud?</p></li>
+</ul>
+<p>Learning Objectives:</p>
+<ul class="simple">
+<li><p>Navigate the Google Compute Engine service and terminology.</p></li>
+<li><p>Allocate a virtual machine in Google Compute Engine.</p></li>
+<li><p>Choose a machine type based on the application.</p></li>
+<li><p>Understand how storage is managed for virtual machines.</p></li>
+<li><p>Use the cost estimator for Google Compute Engine.</p></li>
+<li><p>Understand what a service account is and how they are used.</p></li>
+</ul>
+<p>Drew, after working with a Research Computing and Data (RCD) facilitator, has decided to start their cloud journey with compute, specifically a Virtual Machine, to process data in the cloud with a large and powerful machine to do the analysis.</p>
+<div class="section" id="google-compute-engine">
+<h2>Google Compute Engine<a class="headerlink" href="#google-compute-engine" title="Permalink to this headline">¶</a></h2>
+<p>To learn more about the Google Compute Engine service we will use the web console to create, explore, and destroy a Virtual Machine.  The ability to quickly create, explore, and then discard resources in the web-console is a powerful tool to explore a service.  After an initial exploration with the web-console, programmatic access using scripts or configuration management systems should be used.</p>
+<p>Unfortunately, the terminology used for cloud computing differs from one commercial cloud provider to another. Google Compute Engine uses the term <strong>VM instance</strong> to refer to a running virtual machine, <strong>image</strong> for the boot disk containing the operating system, and <strong>disk</strong> for the writable storage used for a running <em>VM Instance</em>.</p>
+<p>We now take Drew through the process of creating a Google Compute Engine VM instance.</p>
+</div>
+<div class="section" id="allocate-a-vm-instance">
+<h2>Allocate a VM Instance<a class="headerlink" href="#allocate-a-vm-instance" title="Permalink to this headline">¶</a></h2>
+<p>We will first create an <em>VM instance</em> with defaults to explore the Google Compute Engine service.</p>
+<p>To create a bucket we do the following:</p>
+<ul class="simple">
+<li><p>Click <strong>Navigation Menu</strong> -&gt; <strong>Compute Engine</strong> (under Compute) -&gt; <strong>VM Instances</strong> -&gt; <strong>+Create Bucket</strong> (just under the blue bar) to open the <em>Create an instance</em> page.</p></li>
+<li><p>In the <strong>New VM instance</strong> tab on the left (selected by default) configure the <em>VM instance</em> as follows:</p>
+<ul>
+<li><p>For <strong>Name</strong>, enter a unique name for the instances (example: “essentials-instance-1”)</p></li>
+<li><p>For <strong>Region</strong> leave the default or select your “home” region.  The region is the physical location where your data will reside.  Your “home” region should be close to your work and the region you use most often.</p></li>
+<li><p>For <strong>Zone</strong> leave the default (note how the name is constructed and that it is a separate data center).</p></li>
+<li><p>In the <strong>Machine configuration</strong> section:</p>
+<ul>
+<li><p>For <strong>Series</strong> select <em>E2</em> (default). The other options are for types of machines.</p></li>
+<li><p>For <strong>Machine type</strong> select <em>e2-medium</em> (default)</p></li>
+</ul>
+</li>
+<li><p>Leave the remaining options as default.</p></li>
+<li><p>In the <strong>Identity and API access</strong> section note that for the <strong>Service Accounts</strong> -&gt; <strong>Service account</strong> option that the <strong>Compute Engine default service account</strong> is selected.  This allows the <em>VM Instance</em> to <em><strong>access and edit any resources in the project</strong></em>.</p></li>
+</ul>
+</li>
+<li><p>Note the <strong>Monthly estimate</strong> in the right side panel. This is only for running the <em>VM instance</em> and does not include other storage, networking, compute, and other charges that may occur by running software.  Click <strong>Details</strong> show a breakdown of the <em>VM instance</em> only costs.</p></li>
+<li><p>Finally, click <strong>Create</strong> to create the <em>VM Instance</em> (allocate the resource).</p></li>
+</ul>
+</div>
+<div class="section" id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p>Everything in the cloud requires permission (authorization). Ordinary we would configure and check security first but in the case of exploring services it is often easier to do things out of order.  We noted that the <em>VM instance</em> was created with the <em>Compute Engine default service account</em>, which by <em>default</em> has access to all the resources that your Google Account does.</p>
+<p>Specifically, we are interested in verifying what permissions that the <em>Compute Engine default service account</em> has for your <em>VM instances</em> . To do this navigate to the IAM page (<strong>Navigation Menu</strong> -&gt; <strong>IAM &amp; Admin</strong> -&gt; <strong>IAM</strong> -&gt; <strong>Permissions</strong> -&gt; View By: <strong>Principals</strong>)</p>
+<p><em>Note: There is a powerful filter box to limit the permissions shown.</em></p>
+<p>In the <strong>Name</strong> column you should see a row with <strong>Compute Engine default service account</strong>.  Here you should see the <strong>Editor</strong> role in the Role column.  A <em>role</em> is a collection of permissions managed by Google or someone else.  The <strong>Editor</strong> role for a project will <em>allow</em> a <strong>VM instance</strong> to modify resources <em>in</em> the <strong>project</strong>.  The principal for the <em>Compute Engine default service account</em> should start with the <em>Project ID</em> of your project.  It is possible to create a custom service account with the appropriate roles for the <em>VM Instance</em>.</p>
+<p>There are three important pieces of information that work together to form the <strong>IAM policy</strong>. The permission (role), the identity (principal or member), and the resource (project).</p>
+</div>
+<div class="section" id="follow-the-storage-allocation">
+<h2>Follow the Storage Allocation<a class="headerlink" href="#follow-the-storage-allocation" title="Permalink to this headline">¶</a></h2>
+<p>Just as with security, we will audit (follow) the <em>VM instance</em> creation by examining at the project <em>activity</em>.</p>
+<p>To view the project activity we do the following:</p>
+<ul class="simple">
+<li><p>Navigate to the project <strong>Dashboard</strong> by clicking on “Google Cloud Platform” on the left side of the top blue bar.</p>
+<ul>
+<li><p>Select <strong>Activity</strong> tab just below the top blue bar.</p></li>
+<li><p>Look for the row with <strong>Create VM</strong> on the top of the table.  This shows that the <em>VM Instance</em> was created.</p></li>
+<li><p>Expand the detail by clicking the <strong>down arrow</strong> on the right side of the row.  You can see what identity created the bucket and the name.  The rest of the information details the initial settings that you configured when creating the bucket. The details are not really important at this time, just know they exist.</p></li>
+</ul>
+</li>
+</ul>
+<p>Note that the activity is on the project, not the account.</p>
+</div>
+<div class="section" id="enumerate-the-vm-instances">
+<h2>Enumerate the VM Instances<a class="headerlink" href="#enumerate-the-vm-instances" title="Permalink to this headline">¶</a></h2>
+<p>To see an overview of resources in the project navigate to the <strong>dashboard</strong> and you will now see at least <strong>1 instance</strong> in the <em>resources</em> card under <em>Compute Engine</em>.</p>
+<p>Now lets find and connect to the <em>VM Instance</em>.</p>
+<ul class="simple">
+<li><p>Navigate to the Google Compute Engine page by clicking <strong>Navigation Menu</strong> -&gt; <strong>Compute Engine</strong> (under Compute) -&gt; <strong>Instances</strong>.</p></li>
+<li><p><strong>Find</strong> the <em>VM instance</em> you just created.  You can use the filter to find a bucket if there are a lot of them.</p></li>
+<li><p>Click on the <em>VM instance</em> name to open the <strong>VM instance details</strong> (it will display as a hyperlink when you hover over the <em>VM instance</em> name).</p></li>
+</ul>
+</div>
+<div class="section" id="connect-to-the-vm-instance">
+<h2>Connect to the VM Instance<a class="headerlink" href="#connect-to-the-vm-instance" title="Permalink to this headline">¶</a></h2>
+<p>To connect to the <em>VM Instance</em> we will use the cloud shell in the web console.  Open up a shell by clicking on the <strong>Activate Cloud Shell</strong> icon in the top blue bar if it is not already open.</p>
+<p>We first verify that the cloud shell is using the correct identity and <em>project id</em> by looking at the welcome message and the prompt.</p>
+<p><img alt="cloud-shell" src="../../_images/cloud-shell.png" /></p>
+<p>To connect to the <em>VM instance</em> we enter the following command in the cloud shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcloud</span> <span class="n">compute</span> <span class="n">ssh</span> <span class="n">essentials</span><span class="o">-</span><span class="n">instance</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>If you have not used the cloud shell to connect to a <em>VM Instance</em> before you will probably be asked to create a new <em>ssh key</em>.  The Compute Engine will use this key to allow you to access the <em>VM instance</em> in a secure manner.  If this is the case you will see a message similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>WARNING: The private SSH key file for gcloud does not exist.
+WARNING: The public SSH key file for gcloud does not exist.
+WARNING: You do not have an SSH key for gcloud.
+WARNING: SSH keygen will be executed to generate a key.
+This tool needs to create the directory [/home/student231/.ssh] before
+ being able to generate SSH keys.
+
+Do you want to continue (Y/n)?
+</pre></div>
+</div>
+<p>Press enter to continue to create the key.  You will see another message asking you for a passphrase, similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Generating</span> <span class="n">public</span><span class="o">/</span><span class="n">private</span> <span class="n">rsa</span> <span class="n">key</span> <span class="n">pair</span><span class="o">.</span>
+<span class="n">Enter</span> <span class="n">passphrase</span> <span class="p">(</span><span class="n">empty</span> <span class="k">for</span> <span class="n">no</span> <span class="n">passphrase</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>Here you should enter a passphrase (a series of words) to protect the key.  You will be asked to re-enter the passphrase as shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">same</span> <span class="n">passphrase</span> <span class="n">again</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>After successfully retyping the passphrase the key generation process will continue showing similar message as follows (the fingerprint and art will look different):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Your</span> <span class="n">identification</span> <span class="n">has</span> <span class="n">been</span> <span class="n">saved</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">student231</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">google_compute_engine</span><span class="o">.</span>
+<span class="n">Your</span> <span class="n">public</span> <span class="n">key</span> <span class="n">has</span> <span class="n">been</span> <span class="n">saved</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">student231</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">google_compute_engine</span><span class="o">.</span><span class="n">pub</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">key</span> <span class="n">fingerprint</span> <span class="ow">is</span><span class="p">:</span>
+<span class="n">SHA256</span><span class="p">:</span><span class="n">D9yj1nZEUigahirvjkIFoCP7RfjDu67Ku88M7nHQftI</span> <span class="n">student231</span><span class="nd">@cs</span><span class="o">-</span><span class="mi">748001990186</span><span class="o">-</span><span class="n">default</span><span class="o">-</span><span class="n">boost</span><span class="o">-</span><span class="n">r9phq</span>
+<span class="n">The</span> <span class="n">key</span><span class="s1">&#39;s randomart image is:</span>
+<span class="o">+---</span><span class="p">[</span><span class="n">RSA</span> <span class="mi">2048</span><span class="p">]</span><span class="o">----+</span>
+<span class="o">|</span><span class="n">o</span>    <span class="o">.</span>     <span class="o">..</span>    <span class="o">|</span>
+<span class="o">|..</span> <span class="o">..</span> <span class="n">o</span> <span class="o">.</span> <span class="o">..</span>     <span class="o">|</span>
+<span class="o">|+</span> <span class="n">o</span><span class="o">...</span> <span class="n">o</span> <span class="o">..</span> <span class="o">.</span>    <span class="o">|</span>
+<span class="o">|</span><span class="n">ooo</span><span class="o">=</span>  <span class="o">..</span> <span class="o">.</span> <span class="n">o</span>     <span class="o">|</span>
+<span class="o">|.+..=</span>   <span class="n">S</span> <span class="n">o</span> <span class="o">.</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">o</span><span class="o">+..</span><span class="n">o</span>   <span class="o">=</span> <span class="n">o</span>     <span class="o">|</span>
+<span class="o">|.+.+.</span><span class="n">E</span>  <span class="n">o</span> <span class="o">+</span> <span class="o">.</span>    <span class="o">|</span>
+<span class="o">|+.</span><span class="n">B</span> <span class="n">o</span><span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>     <span class="o">|</span>
+<span class="o">|=</span><span class="n">O</span><span class="o">**</span><span class="n">o</span>            <span class="o">|</span>
+<span class="o">+----</span><span class="p">[</span><span class="n">SHA256</span><span class="p">]</span><span class="o">-----+</span>
+</pre></div>
+</div>
+<p>The ssh key generation is now complete.  This will only happen once for your account and you will start here on future connections.</p>
+<p>At this point the command will attempt to connect to the <em>VM Instance</em> and will ask the following question:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Did you mean zone [us-central1-a] for instance: [instance-1] (Y/n)?  n
+</pre></div>
+</div>
+<p>Answer “n”.</p>
+<p>The command will now configure the instance to allow your ssh key and connect to it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No</span> <span class="n">zone</span> <span class="n">specified</span><span class="o">.</span> <span class="n">Using</span> <span class="n">zone</span> <span class="p">[</span><span class="n">us</span><span class="o">-</span><span class="n">central1</span><span class="o">-</span><span class="n">a</span><span class="p">]</span> <span class="k">for</span> <span class="n">instance</span><span class="p">:</span> <span class="p">[</span><span class="n">instance</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span>
+<span class="n">Updating</span> <span class="n">project</span> <span class="n">ssh</span> <span class="n">metadata</span><span class="o">...</span><span class="n">working</span><span class="o">..</span><span class="n">Updated</span> <span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">class</span><span class="o">-</span><span class="n">essentials</span><span class="o">-</span><span class="n">gcp</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span>
+<span class="n">Updating</span> <span class="n">project</span> <span class="n">ssh</span> <span class="n">metadata</span><span class="o">...</span><span class="n">done</span><span class="o">.</span>
+<span class="n">Waiting</span> <span class="k">for</span> <span class="n">SSH</span> <span class="n">key</span> <span class="n">to</span> <span class="n">propagate</span><span class="o">.</span>
+<span class="ne">Warning</span><span class="p">:</span> <span class="n">Permanently</span> <span class="n">added</span> <span class="s1">&#39;compute.74517428106645607&#39;</span> <span class="p">(</span><span class="n">ECDSA</span><span class="p">)</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">known</span> <span class="n">hosts</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Once connected you will see the machine login banner and prompt similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Linux instance-1 4.19.0-17-cloud-amd64 #1 SMP Debian 4.19.194-3 (2021-07-18) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+student231@essentials-instance-1:~$
+</pre></div>
+</div>
+<p>Congratulations you have now created a <em>VM Instance</em> and connected to it.</p>
+<p>Feel free to interact with the machine for a while and type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
+</pre></div>
+</div>
+<p>when you are done.</p>
+</div>
+<div class="section" id="delete-the-storage-exercise">
+<h2>Delete the Storage - Exercise<a class="headerlink" href="#delete-the-storage-exercise" title="Permalink to this headline">¶</a></h2>
+<p>We will now complete the resource life-cycle by deleting the <em>VM Instance</em> we just created. Think about the process we did for creating the bucket and follow a similar one.</p>
+<p>Did you “Follow” the bucket by looking at the <strong>activity</strong> page?</p>
+<p>Since we care about paying for resources we are not using we <strong>review</strong> by visiting the <strong>dashboard</strong> and reviewing that we no longer have any buckets, if this was our only bucket.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Compute Engine Permissions (IAM): https://cloud.google.com/compute/docs/access/iam</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/GCP"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Internet2 Research Engagement<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

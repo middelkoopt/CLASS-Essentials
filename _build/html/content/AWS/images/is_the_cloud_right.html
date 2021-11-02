@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is the Cloud Right for Me? &#8212; Internet2 Cloud Learning And Skills Sessions</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/CLASS-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Internet2 Cloud Learning And Skills Sessions</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro_to_cloud.html">
+   Cloud Computing for Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  CLASS Essentials Modules
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../intro_to_AWS_Essentials.html">
+   Amazon Web Services (AWS)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_intro_to_cloud_console.html">
+     Introduction to the AWS Console
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_intro_to_compute_part1.html">
+     Introduction to Elastic Cloud Compute (EC2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_intro_to_compute_part2.html">
+     Instance Storage, Tags &amp; Security Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_intro_to_cli.html">
+     Introduction to the AWS CLI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_intro_to_cloud_storage.html">
+     Introduction to Cloud Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_running_analysis.html">
+     Putting It All Together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_monitoring_costs.html">
+     Monitoring Costs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_cleaning_up_resources.html">
+     Cleaning Up Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Azure/intro_to_Azure_Essentials.html">
+   Microsoft Azure
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/01_intro_to_cloud_console.html">
+     Introduction to the AWS Console
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/02_intro_to_compute_part1.html">
+     Introduction to Elastic Cloud Compute (EC2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/03_intro_to_compute_part2.html">
+     Instance Storage, Tags &amp; Security Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/04_intro_to_cli.html">
+     Introduction to the AWS CLI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/05_intro_to_cloud_storage.html">
+     Introduction to Cloud Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/06_running_analysis.html">
+     Putting It All Together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/07_monitoring_costs.html">
+     Monitoring Costs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Azure/08_cleaning_up_resources.html">
+     Cleaning Up Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../GCP/intro_to_GCP_Essentials.html">
+   Google Cloud Platform (GCP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../GCP/01_intro_to_cloud_console.html">
+     Introduction to the GCP Cloud Console
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../GCP/04_intro_to_cli.html">
+     Introduction to the gcloud CLI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../GCP/05_intro_to_cloud_storage.html">
+     Introduction to Google Cloud Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../GCP/06_running_analysis.html">
+     Putting It All Together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../GCP/07_monitoring_costs.html">
+     Monitoring Costs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../GCP/08_cleaning_up_resources.html">
+     Cleaning Up Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Extra Learning Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ELM/01_bash_shell.html">
+   Learn the Bash Shell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/AWS/images/is_the_cloud_right.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/AWS/images/is_the_cloud_right.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/AWS/images/is_the_cloud_right.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-not-to-migrate-to-the-cloud">
+   Why
+   <em>
+    not
+   </em>
+   to migrate to the cloud?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="is-the-cloud-right-for-me">
+<h1>Is the Cloud Right for Me?<a class="headerlink" href="#is-the-cloud-right-for-me" title="Permalink to this headline">¶</a></h1>
+<p>Now that you have an idea of what cloud computing is, the question that is most pertinent to researchers is whether or not you <em><strong>should</strong></em> move your work to the cloud. The following chart outlines some fundamental questions to ask in your assessment:</p>
+<p><a class="reference internal" href="content/AWS/images/images/acceleratescience.svg"><img alt="content/AWS/images/images/acceleratescience.svg" class="align-center" src="content/AWS/images/images/acceleratescience.svg" width="500" /></a><br/></p>
+<p>Many researchers move to the commercial cloud simply because their local compute resources (local HPC clusters, or departmental clusters) are insufficient to deal with the volume of data and type of computation. With the cloud, there is no wait time to obtain the computing resources you need. With sufficient funds, you may even be able to obtain a near infinite number of CPUs, RAM and GPUs and compute can start as soon as you want it!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Scalable computing is the ability to obtain more computers(horizontal scaling) and/or to obtain more powerful computers(vertical scaling)</p>
+</div>
+<p>With cloud computing, you do not need to purchase or maintain and update hardware, operating systems and a slew of dependencies. For the most part, providers maintain their hardware. Further, cloud providers just keep making new services to keep up with demands the rapidly expanding community building cloud-native workflows. Cloud providers are constantly evolving their tools and resources with a focus on storage, reliability, and security.</p>
+<p>Other factors that will play in your decision to move to the cloud include knowing where common large datasets are hosted. The core idea in working on the cloud involves a paradigm shift: researchers should no longer bring their data to the compute (i.e. downloading data) but should instead bring their compute to the data! If you think about it, why spend hours on end to download data and find a place to store it when you can work directly with the data?</p>
+<p>If your collaborators are already working in the cloud i.e. hosting data on the cloud or building cloud-based workflows, it would also make sense for you to bring your work to the cloud. <a href="./openscience.html">Go here for more on Open Science and Collaboration</a>.</p>
+<div class="section" id="why-not-to-migrate-to-the-cloud">
+<h2>Why <em>not</em> to migrate to the cloud?<a class="headerlink" href="#why-not-to-migrate-to-the-cloud" title="Permalink to this headline">¶</a></h2>
+<p>If you have already identified an adequate-to-your-needs computing environment like XSEDE or you already have the access to the resources you need, it just doesn’t make sense to migrate to the cloud!</p>
+<p>Using the public cloud requires a learning curve. Sometimes you may just simply not have the time or resources to do this important step. The <a href="./class.html">CLASS program</a> can help you overcome some of these hurdles, but you may prefer to spend your time learning other things or exploring other avenues and it just doesn’t seem worth it to invest your time in learning about the cloud.</p>
+<p>If you operate your computer(s) at a very high duty cycle i.e. you computer is constantly computing something and you have massive datasets that you work with frequently that is stored on-premise, the cloud may not be a very cost-effective option.</p>
+<p>Finally, if there is too much of an administrative drag preventing you from using the cloud (e.g. regulations and compliance such as HIPAA or FERPA), you may want to reconsider staying with your local infrastructure.</p>
+<p>In the next chapter, we will discuss the million dollar question: “But which cloud provider should I choose?!”</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/AWS/images"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Internet2 Research Engagement<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

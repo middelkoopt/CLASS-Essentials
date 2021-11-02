@@ -1,0 +1,49 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro 
+
+parts:
+  - caption: Introduction
+    chapters:
+    - file: intro_to_cloud
+  
+  - caption: CLASS Essentials Modules
+    chapters:
+    - file: AWS/intro_to_AWS_Essentials
+      sections:
+      - file: AWS/01_intro_to_cloud_console
+      - file: AWS/02_intro_to_compute_part1
+      - file: AWS/03_intro_to_compute_part2
+      - file: AWS/04_intro_to_cli
+      - file: AWS/05_intro_to_cloud_storage
+      - file: AWS/06_running_analysis
+      - file: AWS/07_monitoring_costs
+      - file: AWS/08_cleaning_up_resources
+   
+    - file: Azure/intro_to_Azure_Essentials
+      sections:
+      - file: Azure/01_intro_to_cloud_console
+      - file: Azure/02_intro_to_compute_part1
+      - file: Azure/03_intro_to_compute_part2
+      - file: Azure/04_intro_to_cli
+      - file: Azure/05_intro_to_cloud_storage
+      - file: Azure/06_running_analysis
+      - file: Azure/07_monitoring_costs
+      - file: Azure/08_cleaning_up_resources
+    
+    - file: GCP/intro_to_GCP_Essentials
+      sections:
+      - file: GCP/01_intro_to_cloud_console
+      - file: GCP/02_intro_to_cloud_compute_part1
+      - file: GCP/03_intro_to_cloud_compute_part2
+      - file: GCP/04_intro_to_cli
+      - file: GCP/05_intro_to_cloud_storage
+      - file: GCP/06_running_analysis
+      - file: GCP/07_monitoring_costs
+      - file: GCP/08_cleaning_up_resources
+  
+  - caption: Extra Learning Materials
+    chapters:
+    - file: ELM/01_bash_shell

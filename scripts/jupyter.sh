@@ -18,4 +18,4 @@ python3 -m bash_kernel.install
 
 python3 -m pip install  --upgrade jupyterlab-spellchecker
 
-jupyter-lab --port=8080
+jupyter-lab --port=8081

@@ -36,13 +36,13 @@ parts:
     - file: GCP/intro_to_GCP_Essentials
       sections:
       - file: GCP/01_intro_to_cloud_console
-      - file: GCP/02_intro_to_cloud_compute_part1
-      - file: GCP/03_intro_to_cloud_compute_part2
+      - file: GCP/02_intro_to_compute
       - file: GCP/04_intro_to_cli
       - file: GCP/05_intro_to_cloud_storage
       - file: GCP/06_running_analysis
       - file: GCP/07_monitoring_costs
       - file: GCP/08_cleaning_up_resources
+      - file: GCP/glossary
   
   - caption: Extra Learning Materials
     chapters:

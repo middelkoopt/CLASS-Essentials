@@ -8,7 +8,8 @@ NAME=learner
 VM=essentials
 ZONE=us-west2-c
 PROJECT=CLASS-Essentials
-REPO="git@github.internet2.edu:CLASS/${PROJECT}.git"
+GITHUB=github.internet2.edu
+REPO="git@${GITHUB}:CLASS/${PROJECT}.git"
 
 echo "=== gcp-dev.sh $PROJECT $BRANCH"
 
@@ -25,14 +26,13 @@ echo "+++ configuring VM"
 
 gcloud compute ssh --zone=$ZONE $NAME@$VM --ssh-flag='-A' <<EOF
 sudo apt install --yes git python3-pip python3-venv bash-completion
-ssh-keyscan github.internet2.edu > .ssh/known_hosts
+ssh-keyscan ${GITHUB} > .ssh/known_hosts
 git config --global color.ui auto
 git config --global push.default simple
 git config --global pull.ff only
+git config --global user.name "$(git config user.name)"
+git config --global user.email "$(git config user.name)"
 git clone --branch $BRANCH $REPO
-cd $PROJECT
-git config user.name "$(git config user.name)"
-git config user.email "$(git config user.name)"
 EOF
 
 echo "+++ configure local ssh"

@@ -4,6 +4,7 @@
 BRANCH="${1:-gcp-dev}" # checkout branch $1
 
 # Static Config - update gcp-*.sh files
+NAME=learner
 VM=essentials
 ZONE=us-west2-c
 PROJECT=CLASS-Essentials
@@ -16,13 +17,13 @@ gcloud compute instances create --zone=$ZONE $VM --machine-type=e2-highcpu-4 --p
 
 
 echo "+++ wait for boot"
-while ! gcloud compute ssh --zone=$ZONE $VM --command='hostname' ; do
+while ! gcloud compute ssh --zone=$ZONE $NAME@$VM --command='hostname' ; do
     sleep 1
 done
 
 echo "+++ configuring VM"
 
-gcloud compute ssh --zone=$ZONE $VM --ssh-flag='-A' <<EOF
+gcloud compute ssh --zone=$ZONE $NAME@$VM --ssh-flag='-A' <<EOF
 sudo apt install --yes git python3-pip python3-venv
 ssh-keyscan github.internet2.edu > .ssh/known_hosts
 git config --global color.ui auto
@@ -38,4 +39,4 @@ echo "+++ configure local ssh"
 gcloud compute config-ssh
 
 echo "+++ starting Jypter"
-gcloud compute ssh --zone=$ZONE $VM --ssh-flag='-t -L 8080:localhost:8080 -L 8081:localhost:8081' --command="cd $PROJECT ; ./scripts/jupyter-lab.sh"
+gcloud compute ssh --zone=$ZONE $NAME@$VM --ssh-flag='-t -L 8080:localhost:8080 -L 8081:localhost:8081' --command="cd $PROJECT ; ./scripts/jupyter-lab.sh"

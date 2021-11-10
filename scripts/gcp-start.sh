@@ -38,4 +38,4 @@ echo "+++ configure local ssh"
 gcloud compute config-ssh
 
 echo "+++ starting Jypter"
-gcloud compute ssh --zone=$ZONE $VM --ssh-flag='-L 8080:localhost:8080 -L 8081:localhost:8081' --command="cd $PROJECT ; ./scripts/jupyter-lab.sh"
+gcloud compute ssh --zone=$ZONE $VM --ssh-flag='-t -L 8080:localhost:8080 -L 8081:localhost:8081' --command="cd $PROJECT ; ./scripts/jupyter-lab.sh"

@@ -4,7 +4,7 @@ if [ -r ./local.sh ] ; then
   . ./local.sh
 fi
 
-echo "=== Install and run JupyterLab locally"
+echo "=== jupyterlab.sh Install and run JupyterLab locally"
 
 echo "+++ installing jupyter"
 python3 -m venv .venv
@@ -18,4 +18,5 @@ python3 -m bash_kernel.install
 
 python3 -m pip install --upgrade jupyterlab-spellchecker
 
+echo "+++ run jupyter"
 jupyter-lab --port=8081

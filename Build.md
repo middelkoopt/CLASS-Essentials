@@ -39,3 +39,7 @@ export GOOGLE_CLOUD_PROJECT=just-armor-301114
 export DEVSHELL_PROJECT_ID=$GOOGLE_CLOUD_PROJECT
 gcloud config set project $GOOGLE_CLOUD_PROJECT
 ```
+
+## AWS
+
+Expect that `aws` is installed locally.  A ssh-key named 'learner' is required to access the account.

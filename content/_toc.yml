@@ -25,8 +25,7 @@ parts:
     - file: Azure/intro_to_Azure_Essentials
       sections:
       - file: Azure/01_intro_to_cloud_console
-      - file: Azure/02_intro_to_compute_part1
-      - file: Azure/03_intro_to_compute_part2
+      - file: Azure/02_intro_to_compute
       - file: Azure/04_intro_to_cli
       - file: Azure/05_intro_to_cloud_storage
       - file: Azure/06_running_analysis

@@ -3,10 +3,12 @@
 # Options
 BRANCH="${1:-gcp-dev}" # checkout branch $1
 
-# Static Config - update gcp-*.sh files
+# Provider Config - update gcp-*.sh files.
+ZONE=us-west2-c
+
+# Static Config - update *.sh files
 NAME=learner
 VM=essentials
-ZONE=us-west2-c
 PROJECT=CLASS-Essentials
 GITHUB=github.internet2.edu
 REPO="git@${GITHUB}:CLASS/${PROJECT}.git"
@@ -25,7 +27,8 @@ done
 echo "+++ configuring VM"
 
 gcloud compute ssh --zone=$ZONE $NAME@$VM --ssh-flag='-A' <<EOF
-sudo apt install --yes git python3-pip python3-venv bash-completion
+sudo apt-get update
+sudo apt-get install --yes git python3-pip python3-venv bash-completion
 ssh-keyscan ${GITHUB} > .ssh/known_hosts
 git config --global color.ui auto
 git config --global push.default simple

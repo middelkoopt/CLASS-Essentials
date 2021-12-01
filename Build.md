@@ -43,3 +43,7 @@ gcloud config set project $GOOGLE_CLOUD_PROJECT
 ## AWS
 
 Expect that `aws` is installed locally.  A ssh-key named 'learner' is required to access the account.
+
+## Azure
+
+Expect that `az` is installed and configured locally.  It will utilize your ~/.ssh/id_rsa.pub key.

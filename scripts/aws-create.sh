@@ -3,7 +3,9 @@
 # Options
 BRANCH="${1:-aws-dev}" # checkout branch $1
 
-# Static Config - update aws-*.sh files
+# Provider Config - update aws-*.sh files.
+
+# Static Config - update *.sh files
 NAME=learner
 VM=essentials
 PROJECT=CLASS-Essentials

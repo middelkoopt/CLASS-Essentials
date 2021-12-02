@@ -57,7 +57,7 @@ git config --global color.ui auto
 git config --global push.default simple
 git config --global pull.ff only
 git config --global user.name "$(git config user.name)"
-git config --global user.email "$(git config user.name)"
+git config --global user.email "$(git config user.email)"
 git clone --branch $BRANCH $REPO
 EOF
 

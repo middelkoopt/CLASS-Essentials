@@ -51,6 +51,7 @@ done
 echo "+++ configuring VM"
 
 ssh ec2-user@$IP -A <<EOF
+sudo ln -s /home/ec2-user /home/$NAME
 sudo yum install -y git python3-pip python3-venv bash-completion
 ssh-keyscan ${GITHUB} > .ssh/known_hosts
 git config --global color.ui auto

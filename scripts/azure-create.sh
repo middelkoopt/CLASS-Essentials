@@ -14,9 +14,10 @@ GITHUB=github.internet2.edu
 REPO="git@${GITHUB}:CLASS/${PROJECT}.git"
 
 echo "=== azure-create.sh $PROJECT $BRANCH"
+SUBSCRIPTION=$(az account show --query id -otsv)
 RESOURCE_GROUP=$VM
 
-echo "+++ creating resource group $RESOURCE_GROUP"
+echo "+++ creating resource group $RESOURCE_GROUP $SUBSCRIPTION"
 az group create --resource-group $RESOURCE_GROUP --location $LOCATION
 
 echo "+++ creating VM $VM"
@@ -26,6 +27,8 @@ az vm create --resource-group $RESOURCE_GROUP --name $VM \
     --size Standard_D4_v4 \
     --storage-sku Standard_LRS \
     --public-ip-sku Standard \
+    --assign-identity \
+    --scope "subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP" \
     --admin-username $NAME
 
 IP=$(az vm show --name essentials --resource-group essentials -d --query publicIps -otsv)
@@ -39,6 +42,8 @@ done
 echo "+++ configuring VM"
 ssh -A $NAME@$VM <<EOF
 sudo apt-get update
+sudo apt-get install --yes azure-cli
+az login --identity
 sudo apt-get install --yes git python3-pip python3-venv bash-completion
 ssh-keyscan ${GITHUB} > .ssh/known_hosts
 git config --global color.ui auto

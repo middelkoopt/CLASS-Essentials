@@ -51,7 +51,7 @@ echo '--- connected to $NAME@IP'
 sudo apt-get update
 sudo apt-get install --yes azure-cli
 az login --identity
-sudo apt-get install --yes git python3-pip python3-venv bash-completion
+sudo apt-get install --yes git python3-pip python3-venv bash-completion jq
 ssh-keyscan ${GITHUB} > .ssh/known_hosts
 git config --global color.ui auto
 git config --global push.default simple

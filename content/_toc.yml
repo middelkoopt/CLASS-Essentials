@@ -44,6 +44,10 @@ parts:
       - file: GCP/08_cleaning_up_resources
       - file: GCP/glossary
 
+  - caption: Close
+    chapters:
+    - file: is_the_cloud_right
+
   - caption: Extra Learning Materials
     chapters:
     - file: ELM/01_bash_shell

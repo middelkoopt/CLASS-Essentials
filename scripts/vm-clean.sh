@@ -5,6 +5,6 @@
 echo "=== gcp-clean-vm.sh"
 
 ## Cleanup for 06_running_analysis
-sudo apt remove git
+sudo apt remove git --yes
 rm -rf ~/CLASS-Examples
 

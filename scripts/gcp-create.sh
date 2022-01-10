@@ -18,9 +18,9 @@ echo "=== gcp-dev.sh $PROJECT $BRANCH"
 echo "+++ creating/starting VM"
 gcloud compute instances create --zone=$ZONE $VM \
        --scopes=cloud-platform \
-       --machine-type=e2-highcpu-4 --preemptible
+       --machine-type=e2-highcpu-2 --preemptible
 gcloud compute instances start --zone=$ZONE $VM
-IP=$(gcloud compute instances describe essentials --format='value(networkInterfaces.accessConfigs[0].natIP)')
+IP=$(gcloud compute instances describe essentials --zone=$ZONE --format='value(networkInterfaces.accessConfigs[0].natIP)')
 
 echo "+++ configure local ssh $IP"
 gcloud compute config-ssh
@@ -49,16 +49,6 @@ git config --global pull.ff only
 git config --global user.name "$(git config user.name)"
 git config --global user.email "$(git config user.email)"
 git clone --branch $BRANCH $REPO
-EOF
-
-echo "+++ configure local ssh"
-gcloud compute config-ssh
-cat > ~/.ssh/$VM.config <<EOF
-Host essentials
-    HostName $IP
-    CheckHostIP=no
-    ForwardAgent=yes
-    User=$NAME
 EOF
 
 echo "+++ starting Jypter"

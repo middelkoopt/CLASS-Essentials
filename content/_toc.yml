@@ -26,8 +26,9 @@ parts:
       sections:
       - file: Azure/01_intro_to_cloud_console
       - file: Azure/02_intro_to_compute
+      - file: Azure/03_intro_to_cloud_storage
       - file: Azure/04_intro_to_cli
-      - file: Azure/05_intro_to_cloud_storage
+      - file: Azure/05_intro_to_cloud_storage_cli
       - file: Azure/06_running_analysis
       - file: Azure/07_monitoring_costs
       - file: Azure/08_cleaning_up_resources

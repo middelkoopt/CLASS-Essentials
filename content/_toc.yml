@@ -41,6 +41,7 @@ parts:
       - file: GCP/04_intro_to_cli
       - file: GCP/05_cli_storage
       - file: GCP/06_running_analysis
+      - file: GCP/06b_sharing_results
       - file: GCP/07_monitoring_costs
       - file: GCP/08_cleaning_up_resources
       - file: GCP/glossary

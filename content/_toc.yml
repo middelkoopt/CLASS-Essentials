@@ -32,6 +32,7 @@ parts:
       - file: Azure/06_running_analysis
       - file: Azure/07_monitoring_costs
       - file: Azure/08_cleaning_up_resources
+      - file: Azure/glossary
     
     - file: GCP/intro_to_GCP_Essentials
       sections:

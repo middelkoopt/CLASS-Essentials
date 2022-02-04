@@ -14,8 +14,9 @@ parts:
     - file: AWS/intro_to_AWS_Essentials
       sections:
       - file: AWS/01_intro_to_cloud_console
-      - file: AWS/02_intro_to_compute
-      - file: AWS/03_intro_to_cloud_storage
+      - file: AWS/02_intro_to_compute_part1
+      - file: AWS/03_intro_to_compute_part2
+      - file: AWS/04_intro_to_cloud_storage
       - file: AWS/05_intro_to_cli
       - file: AWS/06_running_analysis
       - file: AWS/07_monitoring_costs

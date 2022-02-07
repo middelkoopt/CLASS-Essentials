@@ -32,14 +32,27 @@ This copies the contents of `content/_build/html/` to `docs/` so GitHub Pages wi
 
 ## GCP
 
-Using Jupyter launched from a remote Visual Code Studio session inside GCP Cloud-Shell requires some local settings stored in `local.sh`, use the following as a template replacing the project and email with the proper vaules:
-```
-gcloud config set account student31@class.internet2.edu
-export GOOGLE_CLOUD_PROJECT=just-armor-301114
-export DEVSHELL_PROJECT_ID=$GOOGLE_CLOUD_PROJECT
-gcloud config set project $GOOGLE_CLOUD_PROJECT
+Checkout the project so it is not seen by the students.  Run `./scripts/gcp-cloudshell.sh` to open the shell with the agent and ports 8080 and 8081 forwarded and run the following commands (onetime setup).  Be sure to check the project and account values.
+
+```bash
+git clone git@github.internet2.edu:/CLASS/CLASS-Essentials.git .essentials
+cd .essentials/
+git checkout -b gcp-dev --track origin/gcp-dev
+
+ACCOUNT=learner@class.internet2.edu
+PROJECT=essentials-learner
+cat > .essentials/local.sh <<EOF
+gcloud config set account $ACCOUNT
+export GOOGLE_CLOUD_PROJECT=$PROJECT
+export DEVSHELL_PROJECT_ID=$PROJECT
+gcloud config set project $PROJECT
+EOF
 ```
 
+Then run the following from your local machine (Make sure to shutdown from the web-gui as ctrl-c is not managed properly):
+```bash
+./scripts/gcp-cloudshell-jupyter-lab.sh
+```
 ## AWS
 
 Expect that `aws` is installed locally.  A ssh-key named 'learner' is required to access the account.

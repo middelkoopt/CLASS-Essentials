@@ -52,6 +52,7 @@ echo "+++ configuring VM"
 
 ssh ec2-user@$IP -A <<EOF
 sudo ln -s /home/ec2-user /home/$NAME
+sudo ln -s /home/ec2-user /home/cloudshell-user
 sudo yum install -y git python3-pip python3-venv bash-completion
 ssh-keyscan ${GITHUB} > .ssh/known_hosts
 git config --global color.ui auto
@@ -60,6 +61,7 @@ git config --global pull.ff only
 git config --global user.name "$(git config user.name)"
 git config --global user.email "$(git config user.email)"
 git clone --branch $BRANCH $REPO
+echo $(cat ~/.ssh/id_essentials-cloudshell.pub) >> .ssh/authorized_keys
 EOF
 
 echo "+++ configure ~/.ssh/$VM.config"

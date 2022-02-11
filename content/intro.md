@@ -47,7 +47,7 @@ Please create a [Github issue](https://github.internet2.edu/CLASS/CLASS-Essentia
 
 ## Acknowledgements
 
-Content for this site was put together by the Research Engagement team at Internet2. [Find out more here](https://internet2.edu/community/research-engagement/internet2-research-engagement-team/)!
+Content for this site was put together by John Hicks, Tim Middelkoop, Ananya Ravipati and Amanda Tan at Internet2 in collaboration with the CLASS and research community. [Find out more here](https://internet2.edu/community/research-engagement/internet2-research-engagement-team/)!
 
 
 <!-- #endregion -->

@@ -22,10 +22,6 @@ If you are taking the CLASS Essentials Workshop offered by Internet2, cloud acco
 
 For self-paced learning, you will need an institutional account, an agency-funded account (e.g. via Cloudbank), or a personal cloud account. Please note that we are unable to support or troubleshoot problems or errors that occur for self-paced learning. 
 
-**Knowledge of a POSIX compliant shell, such as bash, zsh, etc.**
-
-You will be using a bash shell to securely log on to a virtual machine and to run some analysis. As such, you will need to have a command line shell installed on your computer. Please follow the instructions [here](https://carpentries.github.io/workshop-template/#shell). For further information on the UNIX Shell, please see the [UNIX Shell Lesson on Software Carpentry](https://swcarpentry.github.io/shell-novice/). 
-
 
 ## CLASS Cloud Adoption Framework
 
@@ -36,18 +32,12 @@ Cloud computing is a utility. Since you pay for the resources you use, it can be
 
 The CLASS Cloud Adoption Framework is a collection of documentation, best practices, tutorials, workflows, and cloud adoption pathways built by researchers and research and data (RCD) professionals ***for*** researchers and RCD professionals. In "adopting" the cloud, the onus is on users to manage costs, to understand the myriad cloud computing jargon, and to rethink how to adapt traditional workflows to a more "cloud-native" solution. 
 
-## More Resources
-
-If you are new to cloud computing for research, you may want to begin with [CLASS Core: A Primer to Cloud Computing for Research](https://github.internet2.edu/pages/CLASS/CLASS-core/intro.html).  
-
 ## Issues
-Please create a [Github issue](https://github.internet2.edu/CLASS/CLASS-Essentials-AWS/issues) or contact
-<mailto:class@internet2.edu?subject=Question%20about%20CLASS-Essentials-AWS> if you have questions, suggestions or comments. 
-
+Contact [the CLASS team](mailto:class@internet2.edu?subject=Question%20about%20CLASS-Essentials-AWS) if you have questions, suggestions or comments. 
 
 ## Acknowledgements
 
-Content for this site was put together by John Hicks, Tim Middelkoop, Ananya Ravipati and Amanda Tan at Internet2 in collaboration with the CLASS and research community. [Find out more here](https://internet2.edu/community/research-engagement/internet2-research-engagement-team/)!
+Content for this site was authored by John Hicks, Tim Middelkoop, Ananya Ravipati and Amanda Tan at Internet2 in collaboration with the CLASS and research community. [Find out more here](https://internet2.edu/community/research-engagement/internet2-research-engagement-team/)!
 
 
 <!-- #endregion -->

@@ -18,4 +18,6 @@ Best Practices:
 [Amanda Tan](atan@internet2.edu)
 
 # License
+The Cloud Learning and Skills Sessions materials (“Materials”) were created by University Corporation for Advanced Internet Development dba Internet2 (“Internet2”) and are shared under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (“License”), avail. at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode. This License permits you to share and modify the Materials, subject to important terms and conditions, which include, without limitation, that (1) you may only use the Materials for non-commercial purposes; (2) if you share the Materials, you must comply with the License’s attribution requirements; and (3), if you modify the Materials, you must distribute your contributions under the same license terms. You agree to review the full License text before accessing the Materials. © 2022  Internet2.
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.

@@ -3,6 +3,7 @@
 
 title: Internet2 Cloud Learning And Skills Sessions 
 author: Internet2 Research Engagement 
+copyright: "2022"  # Copyright year to be placed in the footer
 logo: CLASS-logo.png
 
 # Force re-execution of notebooks on each build.

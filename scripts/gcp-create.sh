@@ -18,7 +18,7 @@ echo "=== gcp-dev.sh $PROJECT $BRANCH"
 echo "+++ creating/starting VM"
 gcloud compute instances create --zone=$ZONE $VM \
        --scopes=cloud-platform \
-       --machine-type=e2-highcpu-2 --preemptible
+       --machine-type=e2-standard-2 --preemptible
 gcloud compute instances start --zone=$ZONE $VM
 IP=$(gcloud compute instances describe essentials --zone=$ZONE --format='value(networkInterfaces.accessConfigs[0].natIP)')
 

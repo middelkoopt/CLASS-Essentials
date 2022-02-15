@@ -39,5 +39,8 @@ Contact [the CLASS team](mailto:class@internet2.edu?subject=Question%20about%20C
 
 Content for this site was authored by John Hicks, Tim Middelkoop, Ananya Ravipati and Amanda Tan at Internet2 in collaboration with the CLASS and research community. [Find out more here](https://internet2.edu/community/research-engagement/internet2-research-engagement-team/)!
 
+## License
+The Cloud Learning and Skills Sessions materials (“Materials”) were created by University Corporation for Advanced Internet Development dba Internet2 (“Internet2”) and are shared under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (“License”), avail. at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode. This License permits you to share and modify the Materials, subject to important terms and conditions, which include, without limitation, that (1) you may only use the Materials for non-commercial purposes; (2) if you share the Materials, you must comply with the License’s attribution requirements; and (3), if you modify the Materials, you must distribute your contributions under the same license terms. You agree to review the full License text before accessing the Materials.
+
 
 <!-- #endregion -->

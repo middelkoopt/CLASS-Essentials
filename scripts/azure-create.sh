@@ -21,33 +21,40 @@ echo "+++ creating resource group $RESOURCE_GROUP $SUBSCRIPTION"
 az group create --resource-group $RESOURCE_GROUP --location $LOCATION
 
 echo "+++ creating VM $VM"
-# Ubuntu is "Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest"
+# Ubuntu is "Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest"
 # Debian is "Debian:debian-10:10:latest"
 # Resource Group scope "subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP"
 az vm create --resource-group $RESOURCE_GROUP --name $VM \
-    --image Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest \
+    --image Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest \
     --size Standard_D2_v4 \
-    --storage-sku Standard_LRS \
+    --storage-sku StandardSSD_LRS \
     --public-ip-sku Standard \
     --assign-identity \
     --scope "subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP" \
+    --role Contributor \
     --admin-username $NAME
 
+echo "+++ get IP for $VM"
 IP=$(az vm show --name $VM --resource-group $RESOURCE_GROUP -d --query publicIps -otsv)
-IDENTITY=$(az vm show --name $VM --resource-group $RESOURCE_GROUP --query identity.principalId -otsv)
 
-echo "+++ assign the VM the Contributor role to the subscription ($IDENTITY to $SUBSCRIPTION)"
-az role assignment create --assignee $IDENTITY  --scope /subscriptions/$SUBSCRIPTION --role Contributor
+echo "+++ configure ~/.ssh/$VM.config"
+cat > ~/.ssh/$VM.config <<EOF
+Host essentials
+    HostName $IP
+    CheckHostIP=no
+    ForwardAgent=yes
+    User=$NAME
+EOF
 
 echo "+++ wait for boot and cloud-init ${VM} ${IP}"
-ssh-keygen -R $IP
+ssh-keygen -R "$IP"
 while ! ssh $NAME@$IP sudo cloud-init status --wait ; do
     sleep 1
 done
 
 echo "+++ configuring VM"
 ssh -A $NAME@$IP <<EOF
-echo '--- connected to $NAME@IP'
+echo '--- connected to $NAME@$IP'
 sudo apt-get update
 sudo apt-get install --yes azure-cli
 az login --identity
@@ -59,15 +66,6 @@ git config --global pull.ff only
 git config --global user.name "$(git config user.name)"
 git config --global user.email "$(git config user.email)"
 git clone --branch $BRANCH $REPO
-EOF
-
-echo "+++ configure ~/.ssh/$VM.config"
-cat > ~/.ssh/$VM.config <<EOF
-Host essentials
-    HostName $IP
-    CheckHostIP=no
-    ForwardAgent=yes
-    User=$NAME
 EOF
 
 echo "+++ starting Jypter"

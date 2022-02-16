@@ -29,6 +29,19 @@ To publish to the `gh-pages` of the `origin` (or other) remote run.
 
 This copies the contents of `content/_build/html/` to `docs/` so GitHub Pages will render the document.  GitHub pages should be set to the `gh-pages` and `docs/` folder.  The script pushes a new branch overwriting the old branch and will not track changes.
 
+## VM Development Setup
+
+Have your ~/.ssh/config source the file the *-create.sh scripts create. This is a one-time per machine setup.
+
+```
+echo "include ~/.ssh/essentials.config" >> ~/.ssh/config
+```
+
+Verify your name and email are correct (locally) as they are copied over to the VM
+```
+git config user.name
+git config user.email
+```
 
 ## GCP
 

@@ -1,0 +1,178 @@
+#/usr/bin python3
+# https://nbviewer.org/github/microsoft/AIforEarthDataSets/blob/main/data/landsat-8.ipynb
+
+import os
+import datetime
+import numpy as np
+import matplotlib.pyplot as plt
+import rasterio
+import rasterio.features
+from rasterio.windows import Window
+from pyproj import Transformer        
+
+from azure.storage.blob import ContainerClient
+from cmr import GranuleQuery
+
+from lxml import etree
+import unicodedata
+
+# Let's take a look at an area near Auckland, New Zealand
+query_lon = 174.92446857141755
+query_lat = -36.89307045544658
+
+query_short_name = 'Landsat_8_OLI_TIRS_C1'
+
+query_start_date = datetime.datetime(2020, 1, 1, 0, 0, 0)
+query_end_date = datetime.datetime(2020, 12, 1, 0, 0, 0)
+
+# This should be a text file with a SAS token for the Landsat container on the first line
+sas_file = os.path.expanduser('~/tokens/landsat_ro_sas.txt')
+
+# Maps instrument names as they appear in CMR results to the short names used in filenames
+instrument_mapping = {
+    'Landsat 8 Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS) Collection 1 V1':
+        'oli-tirs'}
+
+# Choose bands for the RGB composite we're going to make
+rgb_bands = ['B3','B2','B1']
+
+# Normalization value for rendering
+composite_norm_value = 25000
+        
+# Select a thumbnail for thumbnail rendering (six are available for Landsat C2 files)
+thumbnail_index = -3
+        
+# When rendering whole images, how much should we downscale?
+dsfactor = 10
+
+# We're going to render a nice image at the end, set the size and "zoom"
+target_size = [800,400]
+oversample = 3.0
+
+lines = []
+with open(sas_file,'r') as f:
+    lines = f.readlines()
+assert len(lines) >= 1
+sas_token = lines[0].strip()
+        
+storage_account_name = 'landsateuwest'
+container_name = 'landsat-c2'
+storage_account_url = 'https://' + storage_account_name + '.blob.core.windows.net/'
+
+container_client = ContainerClient(account_url=storage_account_url, 
+                                                 container_name=container_name,
+                                                 credential=sas_token)
+api = GranuleQuery()
+json_granules = api.short_name(query_short_name).point(query_lon,query_lat).temporal(query_start_date, query_end_date).get()
+
+print('Found {} granules'.format(len(json_granules)))
+
+# Retrieve results in echo10 format, which is less convenient than the default .json, but
+# includes cloud cover information, which the .json results don't (for Landsat)
+api = GranuleQuery()
+api.parameters(
+    short_name=query_short_name,
+    point=(query_lon, query_lat),
+    temporal=(query_start_date,query_end_date)
+)
+xml_results = api.format('echo10').get(len(json_granules))
+xml = xml_results[0]
+xml = unicodedata.normalize('NFKD', xml).encode('ascii', 'ignore')
+tree = etree.fromstring(xml)
+xml_granules = tree.findall("result/Granule")
+
+lowest_cloud_cover = None
+granule_name = None
+
+for granule in xml_granules:
+    attributes = granule.find('AdditionalAttributes')
+    for a in attributes:
+        name = a.find('Name').text
+        if name == 'LandCloudCover' or name == 'LandCloudCoverPct':
+            cc = float(a.find('Values').find('Value').text)
+            if lowest_cloud_cover is None or cc < lowest_cloud_cover:
+                lowest_cloud_cover = cc
+                granule_name = granule.find('GranuleUR').text
+            break
+# Find the json-formatted granule with the same name
+granule = [g for g in json_granules if g['title'] == granule_name]
+assert len(granule) == 1
+granule = granule[0]
+
+# E.g. 'LE07_L1TP_074086_20200328_20200424_01_T1'
+granule_id = granule['title']
+print('Accessing tile {}'.format(granule_id))
+
+level = 'level-2'
+category = 'standard'
+sensor = instrument_mapping[granule['dataset_id']]
+
+# E.g., 2020-01-03T19:01:46.557Z
+date = granule['time_start']
+year = date[0:4]
+month = date[5:7]
+day = date[8:10]
+
+path = granule_id[10:13]
+row = granule_id[13:16]
+
+row_folder = '/'.join([level,category,sensor,year,path,row])
+
+# E.g. 01152004
+granule_date_string = granule_id[11:19]
+
+granule_month = granule_date_string[0:2]
+granule_day = granule_date_string[2:4]
+granule_year = granule_date_string[4:8]
+
+# E.g. LC08_L1TP_047027_20200103
+scene_prefix = granule_id[0:25]
+
+# E.g. LC08_L2SP_047027_20200103
+scene_prefix = scene_prefix[0:5] + 'L2SP' + scene_prefix[9:]
+
+azure_scene_prefix = row_folder + '/' + scene_prefix
+
+generator = container_client.list_blobs(name_starts_with=azure_scene_prefix)
+image_paths = [blob.name for blob in generator if blob.name.endswith('.TIF')]
+
+print('Found {} images:'.format(len(image_paths)))
+for fn in image_paths:
+    print(fn.split('/')[-1])
+
+azure_urls = [storage_account_url + container_name + '/' + p + sas_token for p in image_paths]
+
+# From https://www.usgs.gov/media/images/common-landsat-band-rgb-composites
+rgb_bands = ['B3','B2','B1']
+rgb_urls = []
+for band_name in rgb_bands:
+    rgb_urls.append([s for s in azure_urls if band_name + '.TIF' in s][0])
+
+thumbnail_data = []
+
+# url = rgb_urls[0]
+for url in rgb_urls:
+    
+    # From:
+    #
+    # https://automating-gis-processes.github.io/CSC/notebooks/L5/read-cogs.html
+    with rasterio.open(url) as raster:
+        
+        # List of overviews from biggest to smallest
+        oviews = raster.overviews(1)
+    
+        # Retrieve a small-ish thumbnail (six are available for Landsat files)
+        decimation_level = oviews[thumbnail_index]
+        h = int(raster.height/decimation_level)
+        w = int(raster.width/decimation_level)
+        
+        thumbnail_channel = raster.read(1, out_shape=(1, h, w)) / composite_norm_value
+        thumbnail_data.append(thumbnail_channel)
+
+rgb = np.dstack((thumbnail_data[0],thumbnail_data[1],thumbnail_data[2]))
+np.clip(rgb,0,1,rgb)
+
+dpi = 100; fig = plt.figure(frameon=False,figsize=(w/dpi,h/dpi),dpi=dpi)
+ax = plt.Axes(fig,[0., 0., 1., 1.]); ax.set_axis_off(); fig.add_axes(ax)
+
+plt.imshow(rgb);

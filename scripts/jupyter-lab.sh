@@ -8,7 +8,7 @@ echo "=== jupyterlab.sh Install and run JupyterLab locally"
 
 echo "+++ installing jupyter"
 python3 -m venv .venv
-. .venv/bin/activate
+. .venv/bin/activate --system-site-packages
 
 python3 -m pip install pip --upgrade
 python3 -m pip install --upgrade jupyterlab

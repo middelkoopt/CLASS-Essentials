@@ -41,8 +41,9 @@ done
 echo "+++ configuring VM"
 gcloud compute ssh --zone=$ZONE $NAME@$VM --ssh-flag='-A' <<EOF
 sudo apt-get update
-sudo apt-get install --yes git python3-pip python3-venv bash-completion spell
+sudo DEBIAN_FRONTEND=noninteractive apt-get install --yes git python3-pip python3-venv bash-completion spell
 ssh-keyscan ${GITHUB} > .ssh/known_hosts
+echo "set enable-bracketed-paste off" > ~/.inputrc
 git config --global color.ui auto
 git config --global push.default simple
 git config --global pull.ff only

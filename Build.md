@@ -73,3 +73,12 @@ Expect that `aws` is installed locally.  A ssh-key named 'learner' is required t
 ## Azure
 
 Expect that `az` is installed and configured locally.  It will utilize your ~/.ssh/id_rsa.pub key.
+
+## Bugs and Fixes
+
+The bash kernel and Python do not like the new "bracketed paste" mode of the new bash/readline.  To fix you can disable "bracketed paste" mode by doing
+```bash
+echo "set enable-bracketed-paste off" > ~/.inputrc
+```
+Note, this removes some copy/paste protection and recommended only for disposable VM's.
+

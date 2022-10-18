@@ -11,7 +11,7 @@ Best Practices:
 # Maintainers
 [John Hicks](jhicks@internet2.edu)
 
-[Tim Middlekoop](tmiddelkoop@internet2.edu)
+[Timothy Middelkoop](tmiddelkoop@internet2.edu)
 
 [Ananya Ravipati](aravipati@internet2.edu)
 
